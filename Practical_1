@@ -1,0 +1,9 @@
+Step 1 :- Installing DHCP Server in Ubuntu
+Run the command below to install the DHCP server package
+Command  :- sudo apt-get -y install isc-dhcp-server
+Now edit the file /etc/default/isc-dhcp-server to define the interfaces DHCPD should use to serve DHCP requests, with the INTERFACES option
+Command :- Change Interface Option (INTERFACES="eth0")
+After This We Have To Configure DHCP Server
+DHCP configuration file is present at /etc/dhcp/dhcpd.conf
+Open And Modify DHCP File
+sudo vi /etc/dhcp/dhcpd.conf
