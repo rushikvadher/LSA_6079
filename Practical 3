@@ -1,0 +1,5 @@
+Step 1 :- Installing NFS Server 
+Command :- sudo apt-get -y install nfs-kernel-server
+Step 2 :- Create A New Directory and file In It.
+Command :- mkdir  dir_name
+Step #;-
