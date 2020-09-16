@@ -15,7 +15,7 @@ Configure Firewall And Open Port 22.
 Command :- sudo ufw allow ssh
 Command :- sudo ufw enable
 Command :- sudo ufw status
-Command :- ssh kali@server-ip
-Command :- ssh kali@power9
-Command :- ssh-copy-id kali@power9
+To Establish Completed With Own Computer
 Command :- ssh 127.0.0.1
+To Check Which User Is Logged In Right Now
+Command :- who
