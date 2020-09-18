@@ -1,0 +1,59 @@
+Step1:-Install Samba server on your machine.
+Command:-sudo apt-get -y install samba
+Step2:-Make a directory and add some file in it
+For making a directory.
+Command:-mkdir dir_name
+For adding files to it .
+Command:-touch file_name
+Step3:-Now open smb.conf to open it goto /etc/samba folder.
+Command:-cd /etc/samba
+note:-Its better to take backup of smb.conf if your doing this for first time.
+Command:-cp source destination
+To open smb.conf you can use nano or vi
+Command:-sudo nano /etc/samba/smb.conf
+or vi /etc/samba/smb.conf
+Step4:-Put the following code in it.
+Commands:-[dir_name]
+[samba_share]
+   comment = Welcome to samba
+   path = /home/kali/samba_shared [here give your dir_path that you give]
+   browseable = yes
+   read only = yes
+Step5:-Start daemon of samba server i.e smdb and nmdb
+Command:-systemctl start sn=mdb/nmdb
+note:-To check status of daemons just replace start with status in above code.
+Step6:-If daemons are activated then create an samba user id and password
+Command:-smbpasswd -a username
+note:-After running this line of code it will ask you create your password.
+Step6:-Now check your ip address from following command and copy it.
+Command:-ip addr
+Step7:-To share your directory through Samba server use follwowing command
+Command:-net usershare add documents "/home/kali/samba_shared" "folder_name"
+
+• Windows OS Part:
+
+1.In windows press windows + R key and now a pop up box will open and their write ip addr 
+
+2.Write your credentials 
+
+3.Now samba_shared and documents folder are visible.
+
+Connection and sharing has successfully done here.
+
+•If your connection is not working.
+sudo pdbedit -a -u $(whoami)
+
+Step8:- sudo pdbedit -L (to check all users)
+Step9:- make any connectionn possible
+    sudo ufw allow from (your ip addr) any app Samba
+
+
+Step10:- reload firewall:
+sudo ufw reload  
+
+Step11:- To check
+    sudo smbcllient -U <username> -L  //your ip
+
+Step12:- restart services
+sudo systemctl restart smbd
+sudo systemctl restart nmbd
